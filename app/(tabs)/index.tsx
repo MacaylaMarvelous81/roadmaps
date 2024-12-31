@@ -1,6 +1,7 @@
-import { Text, View, Pressable, StyleSheet } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 import { Layout, Section } from '@/components/layout';
 import Header from '@/components/header';
+import ThemedText from '@/components/themed-text';
 import Ionicons from '@expo/vector-icons/Ionicons'
 import ProjectCard from '@/components/project-card';
 
@@ -10,14 +11,14 @@ export default function Index() {
       <Section>
         <Header title="Projects">
           <Pressable>
-            <Ionicons name="add-outline" size={ 24 } />
+            <Ionicons name="add-outline" size={24} />
           </Pressable>
         </Header>
         <ProjectCard title="Roadmaps" milestone="1.0" />
       </Section>
       <Section>
         <Header title="Tasks" />
-        <Text><Text style={ { fontWeight: 500 } }>Roadmaps</Text>: Design home screen</Text>
+        <ThemedText><ThemedText style={{ fontWeight: 500 }}>Roadmaps</ThemedText>: Design home screen</ThemedText>
       </Section>
     </Layout>
   );

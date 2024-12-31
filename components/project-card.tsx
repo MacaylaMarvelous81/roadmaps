@@ -1,11 +1,17 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, type ViewProps, StyleSheet } from 'react-native';
 import Header from '@/components/header';
+import ThemedText from '@/components/themed-text';
 
-export default function ProjectCard({ title, milestone }) {
+export type ProjectCardProps = ViewProps & {
+  title: string;
+  milestone: string;
+};
+
+export default function ProjectCard({ title, milestone, style, ...props }: ProjectCardProps) {
   return (
-    <View style={ styles.card }>
-      <Header title={ title } sub={ true } />
-      <Text>{ milestone }</Text>
+    <View style={[styles.card, style]} {...props}>
+      <Header title={title} sub={true} />
+      <ThemedText>{milestone}</ThemedText>
     </View>
   );
 }

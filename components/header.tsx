@@ -1,10 +1,16 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, type ViewProps, StyleSheet } from 'react-native';
+import ThemedText from '@/components/themed-text';
 
-export default function Header({ title, sub = false, children }) {
+export type HeaderProps = ViewProps & {
+  title: string;
+  sub?: boolean;
+};
+
+export default function Header({ title, sub = false, children, style, ...props }: HeaderProps) {
   return (
-    <View style={ styles.header }>
-      <Text style={ sub ? styles.subheading : styles.heading }>{ title }</Text>
-      { children }
+    <View style={[styles.header, style]} {...props}>
+      <ThemedText type={sub ? 'subtitle' : 'title'}>{title}</ThemedText>
+      {children}
     </View>
   );
 }
