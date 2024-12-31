@@ -10,7 +10,9 @@ export type ProjectCardProps = ViewProps & {
 export default function ProjectCard({ title, milestone, style, ...props }: ProjectCardProps) {
   return (
     <View style={[styles.card, style]} {...props}>
-      <Header title={title} sub={true} />
+      <Header>
+        <ThemedText type="subtitle">{title}</ThemedText>
+      </Header>
       <ThemedText>{milestone}</ThemedText>
     </View>
   );
